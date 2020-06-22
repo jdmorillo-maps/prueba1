@@ -18,7 +18,12 @@
             margin: 0;
         }
         </style>
-        <title></title>
+        <title>prueba1 mapa web</title>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		crossorigin=""/>
     </head>
     <body>
         <div id="map">
@@ -271,7 +276,7 @@
                 lineCap: 'square',
                 lineJoin: 'bevel',
                 weight: 4.0,
-                fillOpacity: 0,
+                fillOpacity: 0.3,
                 interactive: true,
             }
         }
@@ -407,7 +412,7 @@
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 1,
+                fillOpacity: 0.3,
                 fillColor: 'rgba(55,126,184,1.0)',
                 interactive: true,
             }
@@ -1186,5 +1191,26 @@
         L.control.layers(baseMaps,{'<img src="legend/NODOS_20200519_WGS84_18.png" /> NODOS_20200519_WGS84': layer_NODOS_20200519_WGS84_18,'<img src="legend/ESTRUCTURAS__2191204_WGS84_17.png" /> ESTRUCTURAS__2191204_WGS84': layer_ESTRUCTURAS__2191204_WGS84_17,'<img src="legend/ACUEDUCTO_SQM_WGS84_16.png" /> ACUEDUCTO_SQM_WGS84': layer_ACUEDUCTO_SQM_WGS84_16,'<img src="legend/CAMINO_ACCESO_WGS84_15.png" /> CAMINO_ACCESO_WGS84': layer_CAMINO_ACCESO_WGS84_15,'<img src="legend/CAERIAS_WGS84_14.png" /> CAÑERIAS_WGS84': layer_CAERIAS_WGS84_14,'<img src="legend/TENDIDO_ELECTRICO_WGS84_13.png" /> TENDIDO_ELECTRICO_WGS84': layer_TENDIDO_ELECTRICO_WGS84_13,'<img src="legend/EJE_LINEA_FERREA_WGS84_12.png" /> EJE_LINEA_FERREA_WGS84': layer_EJE_LINEA_FERREA_WGS84_12,'<img src="legend/LINEAS_EXISTENTES_WGS84_11.png" /> LINEAS_EXISTENTES_WGS84': layer_LINEAS_EXISTENTES_WGS84_11,'<img src="legend/LT_AGOSTO_2019_WGS84_10.png" /> LT_AGOSTO_2019_WGS84': layer_LT_AGOSTO_2019_WGS84_10,'<img src="legend/RED_HIDROGRAFICA_WGS84_9.png" /> RED_HIDROGRAFICA_WGS84': layer_RED_HIDROGRAFICA_WGS84_9,'<img src="legend/RED_VIAL_WGS84_8.png" /> RED_VIAL_WGS84': layer_RED_VIAL_WGS84_8,'<img src="legend/AFECTACION_CCEE_WGS84_7.png" /> AFECTACION_CCEE_WGS84': layer_AFECTACION_CCEE_WGS84_7,'<img src="legend/BOCATOMA_WGS84_6.png" /> BOCATOMA_WGS84': layer_BOCATOMA_WGS84_6,'<img src="legend/COYA_SUR_WGS84_5.png" /> COYA_SUR_WGS84': layer_COYA_SUR_WGS84_5,'<img src="legend/SE_MIRAJE_POL_WGS84_4.png" /> SE_MIRAJE_POL_WGS84': layer_SE_MIRAJE_POL_WGS84_4,'<img src="legend/PREDIOS_WGS84_3.png" /> PREDIOS_WGS84': layer_PREDIOS_WGS84_3,"Google Satellite": layer_GoogleSatellite_2,"Google Streets": layer_GoogleStreets_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
+		
+		<script>
+	
+	var popup = L.popup();
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent("Hiciste click en las coordenadas: " + e.latlng.toString())
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
+	</script>
+
+		
+		<!-- Make sure you put this AFTER Leaflet's CSS -->
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+		integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+		crossorigin=""></script>
     </body>
 </html>
